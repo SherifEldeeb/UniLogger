@@ -7,7 +7,7 @@
 *					[UniLogger]					*
 *  A "not-evil" keylogger with Unicode support	*
 *************************************************		
-- @SherifEldeeb
+- @SheriefEldeeb
 - http://eldeeb.net
 - Made in Egypt :)
 ************************************************/
